@@ -4,8 +4,10 @@ import { NavLink } from 'react-router-dom';
 import classes from './Header.module.css';
 import { authActions } from '../store/auth';
 import { Popconfirm, message } from 'antd';
+import { useHistory } from "react-router-dom";
 
 const Header = () => {
+  let history = useHistory();
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
@@ -14,6 +16,8 @@ const Header = () => {
     sessionStorage.removeItem("token");
     localStorage.clear();
     dispatch(authActions.logout());
+    history.push('/');
+
   }
   
   function cancel(e) {
