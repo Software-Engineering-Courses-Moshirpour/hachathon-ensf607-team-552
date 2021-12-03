@@ -28,6 +28,7 @@ public class Reqobj {
     private String returnedUser;
     private long userid;
     private int animalid;
+    private int instructId;
 
 
     public void setId(String id) {

@@ -62,6 +62,12 @@ public class Request {
     )
     private String returnedUser;
 
+    @Column(
+            name = "instruct_id",
+            nullable = false
+    )
+    private int instructId;
+
     @ManyToOne
     @JoinColumn(
             name = "user_id",

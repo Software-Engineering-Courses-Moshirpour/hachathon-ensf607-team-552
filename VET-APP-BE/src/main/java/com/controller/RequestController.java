@@ -48,29 +48,40 @@ public class RequestController {
         return ret;
     }
 
+
+    @RequestMapping(value = "/getallrequestsByInstruct", method = RequestMethod.GET)
+    public ResponseTemplate fetchAllRequestByInstruct(@RequestParam(value = "instrucId") int instrucId, HttpServletRequest request) {
+
+        ResponseTemplate ret = new ResponseTemplate();
+
+        Iterable<Request> requests = requestRepository.findRequestByInstructId(instrucId);
+
+        ret.setData(requests);
+        ret.setCode(HttpStatus.OK.value());
+        ret.setMessage("find all req succ");
+
+        return ret;
+    }
+
     @RequestMapping(value = "/addRequest", method = RequestMethod.POST)
     public ResponseTemplate addRequestConfig(@RequestBody Reqobj req, HttpServletRequest request) {
         ResponseTemplate ret = new ResponseTemplate();
-        if (req.getAdminstatus().equals(AnimalStatus.Available.toString())){
-            User user = userRepository.findById(req.getUserid()).get();
-            Animal animal = animalRepository.findById(req.getAnimalid()).get();
+        User user = userRepository.findById((Long)req.getUserid()).get();
+        Animal animal = animalRepository.findById(req.getAnimalid()).get();
 
-            Request re = new Request();
-            re.setAdminstatus(req.getAdminstatus());
-            re.setReqDate(req.getReqDate());
-            re.setReturnDate(req.getReturnDate());
-            re.setReturnedUser(req.getReturnedUser());
-            re.setTechstatus(req.getTechstatus());
-            re.setAnimal(animal);
-            re.setUser(user);
+        Request re = new Request();
+        re.setAdminstatus(req.getAdminstatus());
+        re.setReqDate(req.getReqDate());
+        re.setReturnDate(req.getReturnDate());
+        re.setReturnedUser(req.getReturnedUser());
+        re.setTechstatus(req.getTechstatus());
+        re.setInstructId(req.getInstructId());
+        re.setAnimal(animal);
+        re.setUser(user);
 
-            requestRepository.save(re);
-            ret.setCode(HttpStatus.OK.value());
-            ret.setMessage("request added succ");
-        } else{
-            ret.setCode(HttpStatus.BAD_REQUEST.value());
-            ret.setMessage("The animal is not available to req");
-        }
+        requestRepository.save(re);
+        ret.setCode(HttpStatus.OK.value());
+        ret.setMessage("request added succ");
         return ret;
     }
 
