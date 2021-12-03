@@ -3,7 +3,6 @@ VET-APP-BE/target/
 VET-APP-BE/!.mvn/wrapper/maven-wrapper.jar
 VET-APP-BE/!**/src/main/**/target/
 VET-APP-BE/!**/src/test/**/target/
-VET-APP-BE/src/main/resources/application.properties
 
 ### STS ###
 VET-APP-BE/.apt_generated
