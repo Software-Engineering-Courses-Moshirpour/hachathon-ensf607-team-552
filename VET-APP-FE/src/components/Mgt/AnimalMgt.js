@@ -34,47 +34,16 @@ const AniamlMgt = () => {
           ))
           setData(temp);
       }, [animalData])
-/*
-      animalData.map(ad=>{
-        //console.log(ud);
-        data.push({
-            ...ad,
-            key:ad.id,
-            age: ad.age,
-            dob: moment(new Date(ad.dob)).format('YYYY-MM-DD'),
-          })
-      });
-      */
 
    
      function reqAnimal(animalstatus,animalID,userID) {
-      //console.log("reqAnimal");
-      //console.log(animalID);
       let now = moment().format('YYYY-MM-DD');
-      //console.log(userID);
-      //console.log(PENDING);
-      //console.log(new Date().format('YYYY-MM-DD'));
-      if(animalstatus == 'Available'){
         setUnavailableStatus(animalID);
         axios.post("api/request/addRequest", {adminstatus:PENDING, reqDate:now,
-          returnDate:now, returnedUser:"test",techstatus:PENDING, animalid: animalID, userid:userID})
+          returnDate:now, returnedUser:localStorage.getItem("userName"),techstatus:PENDING, animalid: animalID, userid:userID, instructId: localStorage.getItem("userId")})
        .then(res=>{
          console.log(res.data.message);  
        })
-      }else {
-        alert("This Animal is not available");
-      }
-      //console.log(uid);
-      //console.log(key);
-      //.post
-      /*axios.get("api/animal/setUnavailableStatus?id="+key)
-      .then(res=>{
-        //console.log(res.data.message);  
-      })
-      .then(res=>{
-        loadAnimal();
-        //console.log(uid);
-      })*/
     }
     //console.log(data);
     function setUnavailableStatus(key){
@@ -230,8 +199,8 @@ const AniamlMgt = () => {
         <Col span={16} style={{marginTop:"20px"}}>
            <h1>Animal Management</h1>
            <Table bordered columns={columns} dataSource={data} />
-           <h1>Your Request</h1>
-           <Table bordered columns={req_columns} dataSource={data} />
+           {/* <h1>Your Request</h1>
+           <Table bordered columns={req_columns} dataSource={data} /> */}
         </Col>
         </Row>
         </React.Fragment>

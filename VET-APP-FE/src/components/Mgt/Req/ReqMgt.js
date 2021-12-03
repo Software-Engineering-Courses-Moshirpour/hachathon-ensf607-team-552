@@ -32,9 +32,13 @@ const ReqMgt = () => {
 
 
       function confirm(key) {
-        axios.delete("api/user/deleteById?id="+key)
+        let params = { id: key}
+        axios.delete("api/request/deleteRequest",{params})
         .then(res=>{
-          console.log(res.data.message);  
+          message.success("req deleted successfully");
+        })
+        .then(res2=>{
+          refreshPage();
         })
       }
       
@@ -67,6 +71,7 @@ const ReqMgt = () => {
           })
         }
       }
+
 
 
       function declineReq(requestId){
@@ -107,6 +112,12 @@ const ReqMgt = () => {
             setrequestData(res.data.data);  
           })
         }
+        else if(localStorage.getItem("role")==ROLE_TEACHINGTECH){
+          axios.get("api/request/getallrequestsByInstruct?instrucId="+localStorage.getItem("userId"))
+          .then(res=>{
+            setrequestData(res.data.data);  
+          })
+        }
       }
 
 
@@ -139,15 +150,17 @@ const ReqMgt = () => {
               <Space size="middle">
                 {localStorage.getItem("role")==ROLE_ANIMALHTTECH && record.techstatus=="PENDING" && <Button type="primary" onClick={() => approveReq(record.key)}>Approve</Button>}
                 {localStorage.getItem("role")==ROLE_ADMIN && record.adminstatus=="PENDING" && <Button type="primary" onClick={() => approveReq(record.key)}>Approve</Button>}
-                <Popconfirm
-                        title="Are you sure to decline this record?"
+              
+                 {localStorage.getItem("role")==ROLE_ANIMALHTTECH && record.techstatus=="PENDING" && <Button type="danger" onClick={() => declineReq(record.key)}>Decline</Button>}
+                 {localStorage.getItem("role")==ROLE_ADMIN && record.adminstatus=="PENDING" && <Button type="danger" onClick={() => declineReq(record.key)}>Decline</Button>}
+                 <Popconfirm
+                        title="Are you sure to delete this record?"
                         onConfirm={() => confirm(record.key)}
                         onCancel={cancel}
                         okText="Yes"
                         cancelText="No"
-                    >
-                 {localStorage.getItem("role")==ROLE_ANIMALHTTECH && record.techstatus=="PENDING" && <Button type="danger" onClick={() => declineReq(record.key)}>Decline</Button>}
-                 {localStorage.getItem("role")==ROLE_ADMIN && record.adminstatus=="PENDING" && <Button type="danger" onClick={() => declineReq(record.key)}>Decline</Button>}
+                    >      
+                 {localStorage.getItem("role")==ROLE_TEACHINGTECH &&  record.adminstatus!="DECLINED" && <Button type="danger">Delete</Button>}
                 </Popconfirm>
               </Space>
             ),
