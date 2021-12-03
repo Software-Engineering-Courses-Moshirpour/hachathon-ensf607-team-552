@@ -43,6 +43,7 @@ const AniamlMgt = () => {
           returnDate:now, returnedUser:localStorage.getItem("userName"),techstatus:PENDING, animalid: animalID, userid:userID, instructId: localStorage.getItem("userId")})
        .then(res=>{
          console.log(res.data.message);  
+         message.success("req animal successfully");
        })
     }
     //console.log(data);

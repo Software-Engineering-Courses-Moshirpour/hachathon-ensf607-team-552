@@ -111,6 +111,11 @@ public class RequestController {
         }else if(type.equals(ERole.ROLE_ANIMALHTTECH.toString())) {
             requestfromdb.setTechstatus(RequestStatus.valueOf(status));
         }
+        if(requestfromdb.getTechstatus().equals(RequestStatus.DECLINED) && requestfromdb.getAdminstatus().equals(RequestStatus.DECLINED)) {
+            Animal animalUpdate = requestfromdb.getAnimal();
+            animalUpdate.setStatus(AnimalStatus.Available);
+            animalRepository.save(animalUpdate);
+        }
         requestRepository.save(requestfromdb);
         ret.setCode(HttpStatus.OK.value());
         ret.setMessage("update request succ");
