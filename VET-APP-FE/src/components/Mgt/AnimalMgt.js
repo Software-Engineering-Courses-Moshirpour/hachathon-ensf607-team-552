@@ -13,7 +13,7 @@ const AniamlMgt = () => {
       const { Option } = Select;
       const [animalData, setAnimalData] = useState([]);
       const [userData, setUserData] = useState([]);
-      const [uid, setuid] = useState(0);
+      const [reqData, setReqData] = useState([]);
       let history = useHistory();
 
       //const data = [];
@@ -47,21 +47,23 @@ const AniamlMgt = () => {
       */
 
    
-     function reqAnimal(animalID,userID) {
-      console.log("reqAnimal");
-      console.log(animalID);
+     function reqAnimal(animalstatus,animalID,userID) {
+      //console.log("reqAnimal");
+      //console.log(animalID);
       let now = moment().format('YYYY-MM-DD');
-      //setUnavailableStatus(animalID);
-      console.log(userID);
+      //console.log(userID);
       //console.log(PENDING);
       //console.log(new Date().format('YYYY-MM-DD'));
-      axios.post("api/request/addRequest", {adminstatus:PENDING, reqDate:now,
-         returnDate:now, returnedUser:"test",techstatus:PENDING, animalid: animalID, userid:userID})
-      .then(res=>{
-        console.log(res.data.message);  
-      })
-
-
+      if(animalstatus == 'Available'){
+        setUnavailableStatus(animalID);
+        axios.post("api/request/addRequest", {adminstatus:PENDING, reqDate:now,
+          returnDate:now, returnedUser:"test",techstatus:PENDING, animalid: animalID, userid:userID})
+       .then(res=>{
+         console.log(res.data.message);  
+       })
+      }else {
+        alert("This Animal is not available");
+      }
       //console.log(uid);
       //console.log(key);
       //.post
@@ -98,7 +100,7 @@ const AniamlMgt = () => {
       //console.log(uid);
     };
     const handleRequest = (record) => {
-      reqAnimal(record.id,record.requestTo);
+      reqAnimal(record.adminstatus,record.id,record.requestTo);
     };
 
     function loadAnimal(){
@@ -107,6 +109,13 @@ const AniamlMgt = () => {
         setAnimalData(res.data.data);  
       })
     }
+    function loadRequest(){
+      axios.get("api/request/getAllRequestbyUserID")
+      .then(res=>{
+        setReqData(res.data.data);  
+      })
+    }
+
     function loadUser(){
       axios.get("api/user/getAllUserByRole")
       .then(res=>{
@@ -155,14 +164,60 @@ const AniamlMgt = () => {
           key: 'action',
           render: (text, record) => (
             <Space size="middle">
-              
               <Button onClick={() => handleRequest(record)}>Request</Button>
-              <Button>Cancle</Button>
             </Space>
           ),
         },
       ];
 
+      const req_columns = [
+        {
+          title: 'ID',
+          dataIndex: 'id',
+          
+        },
+          {
+            title: 'Admin Status',
+            dataIndex: 'age',
+          },
+        {
+          title: 'Request Date',
+          dataIndex: 'breed',
+        },
+        {
+          title: 'Return Date',
+          dataIndex: 'status',
+        }, 
+        {
+          title: 'Return By',
+          dataIndex: 'userid',
+        },        
+        {
+          title: 'Tech Status',
+          dataIndex: 'userid',
+        },
+        {
+          title: 'Animal ID',
+          dataIndex: 'userid',
+        },
+        {
+          title: 'Tech ID',
+          dataIndex: 'userid',
+        },
+        {
+          title: 'Submitted By',
+          dataIndex: 'userid',
+        },
+        {
+          title: 'Action',
+          key: 'action',
+          render: (text, record) => (
+            <Space size="middle">              
+              <Button onClick={() => handleRequest(record)}>Cancle</Button>
+            </Space>
+          ),
+        },
+      ];
  
 // <Button onClick={() => reqAnimal(record.key)}>Request</Button>
 
@@ -175,8 +230,9 @@ const AniamlMgt = () => {
         <Col span={16} style={{marginTop:"20px"}}>
            <h1>Animal Management</h1>
            <Table bordered columns={columns} dataSource={data} />
+           <h1>Your Request</h1>
+           <Table bordered columns={req_columns} dataSource={data} />
         </Col>
-       
         </Row>
         </React.Fragment>
     )

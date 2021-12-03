@@ -1,6 +1,7 @@
 package com.controller;
 
 
+import com.enums.AnimalStatus;
 import com.enums.RequestStatus;
 import com.model.*;
 import com.pojo.Reqobj;
@@ -49,23 +50,27 @@ public class RequestController {
 
     @RequestMapping(value = "/addRequest", method = RequestMethod.POST)
     public ResponseTemplate addRequestConfig(@RequestBody Reqobj req, HttpServletRequest request) {
-        //System.out.println(req);
-        User user = userRepository.findById(req.getUserid()).get();
-        Animal animal = animalRepository.findById(req.getAnimalid()).get();
-
-        Request re = new Request();
-        re.setAdminstatus(req.getAdminstatus());
-        re.setReqDate(req.getReqDate());
-        re.setReturnDate(req.getReturnDate());
-        re.setReturnedUser(req.getReturnedUser());
-        re.setTechstatus(req.getTechstatus());
-        re.setAnimal(animal);
-        re.setUser(user);
         ResponseTemplate ret = new ResponseTemplate();
-        requestRepository.save(re);
-        ret.setCode(HttpStatus.OK.value());
-        ret.setMessage("request added succ");
+        if (req.getAdminstatus().equals(AnimalStatus.Available.toString())){
+            User user = userRepository.findById(req.getUserid()).get();
+            Animal animal = animalRepository.findById(req.getAnimalid()).get();
 
+            Request re = new Request();
+            re.setAdminstatus(req.getAdminstatus());
+            re.setReqDate(req.getReqDate());
+            re.setReturnDate(req.getReturnDate());
+            re.setReturnedUser(req.getReturnedUser());
+            re.setTechstatus(req.getTechstatus());
+            re.setAnimal(animal);
+            re.setUser(user);
+
+            requestRepository.save(re);
+            ret.setCode(HttpStatus.OK.value());
+            ret.setMessage("request added succ");
+        } else{
+            ret.setCode(HttpStatus.BAD_REQUEST.value());
+            ret.setMessage("The animal is not available to req");
+        }
         return ret;
     }
 
