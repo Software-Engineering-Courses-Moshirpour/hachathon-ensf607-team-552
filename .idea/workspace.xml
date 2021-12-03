@@ -5,63 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7d9fb89-28b2-4d71-8e2a-6161a72f5d54" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hackaton.drawio.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/AnimalController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/ForgotPasswordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/RequestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enums/AnimalStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enums/MedType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enums/RequestStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enums/Sex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enums/Status.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/enums/TMType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/AppTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jwt/AuthEntryPointJwt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jwt/AuthTokenFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jwt/request/LoginRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jwt/request/SignupRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jwt/response/JwtResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jwt/response/MessageResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/Animal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/AnimalStatusHistory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/Comment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/ERole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/MedRecordType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/Prescription.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/Request.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/ResponseTemplate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/TreatmentMethod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/Reqobj.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/Userobj.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/repository/AnimalDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/repository/CommentDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/repository/PrescribeDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/repository/RequestDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/repository/RoleDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/repository/UserDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/security/WebMvcConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/security/WebSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/UserDetailsImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/UserDetailsServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/UserServices.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utils/JwtUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utils/UrlUtility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/forgot_password_form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/message.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reset_password_form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/success.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,11 +67,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/VET-APP-BE" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="BUNDLED" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.Application" />
-      <module name="demo" />
+      <module name="hachathon-ensf607-team-552" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.*" />
@@ -145,6 +94,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Application" />
+      <item itemvalue="Spring Boot.Application" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
@@ -162,6 +115,7 @@
       <workItem from="1638512542594" duration="1691000" />
       <workItem from="1638520804514" duration="53000" />
       <workItem from="1638520887253" duration="8544000" />
+      <workItem from="1638568956802" duration="45000" />
     </task>
     <servers />
   </component>

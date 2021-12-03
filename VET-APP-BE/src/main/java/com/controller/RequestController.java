@@ -125,9 +125,13 @@ public class RequestController {
         ResponseTemplate ret = new ResponseTemplate();
         if(requestRepository.existsById(id)){
             // if id exists user can be deleted
+            Animal animalUpdate = requestRepository.findById(id).get().getAnimal();
             requestRepository.deleteById(id);
+            animalUpdate.setStatus(AnimalStatus.Available);
+            animalRepository.save(animalUpdate);
             ret.setCode(HttpStatus.OK.value());
-            ret.setMessage("delete req succ");
+            ret.setMessage("delete req & update animal status req succ");
+
         }else{
             ret.setCode(HttpStatus.BAD_REQUEST.value());
             ret.setMessage("req does not exist cannot be deleted");
