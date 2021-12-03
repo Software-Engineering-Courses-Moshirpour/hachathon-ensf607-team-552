@@ -5,7 +5,7 @@
 
 *Assignment 6 - Hachathon*
 
-Students should complete the hackathon with their ENSF 607 term project group.
+by Yuhua Guo, Pang-Cheng Chang, Jintao Wang
 
 **_<span style="text-decoration:underline;">Due date: Before 11:59 PM on Friday December 3rd </span>_**
 
