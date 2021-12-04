@@ -23,7 +23,7 @@ The application has three users as follows:
 
 
 
-1. Instructor
+#Instructor
 
     1. Can request an animal 
     
@@ -37,7 +37,7 @@ The application has three users as follows:
     
 ![pic3](pic3.png)
 
-2. Admin
+#Admin
 
     4. Can view new requests
     
@@ -53,7 +53,7 @@ The application has three users as follows:
 ![pic6](pic6.png)
 ![pic6-1](pic6-1.png)
 
-3. Technician
+#Technician
 
     7. Can view new requests
     
