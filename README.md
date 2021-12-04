@@ -7,12 +7,6 @@
 
 by Yuhua Guo, Pang-Cheng Chang, Jintao Wang
 
-**Due date: Before 11:59 PM on Friday December 3rd**
-
-Groups will present their final submission during the lecture on Tuesday, December 6th. Each presentation will be no longer than **5 minutes**. During this presentation, the teams must present the architecture, backend, and the frontend of their application. 
-
-Note: All group members must be present (and active) during their presentations. All students must attend all presentations. 
-
 **Animal Request Management**
 
 In this hackathon, you will develop the animal request management epic for the vet management system. The workflow is such that the instructor submits a request for an animal, then the admin and technician may approve or reject the request respectively. After approval from both the admin and the technician, the animal is ready to be delivered. 
@@ -80,3 +74,8 @@ The application has three users as follows:
     * Technician: pass: pe
 
 
+**Due date: Before 11:59 PM on Friday December 3rd**
+
+Groups will present their final submission during the lecture on Tuesday, December 6th. Each presentation will be no longer than **5 minutes**. During this presentation, the teams must present the architecture, backend, and the frontend of their application. 
+
+Note: All group members must be present (and active) during their presentations. All students must attend all presentations. 
