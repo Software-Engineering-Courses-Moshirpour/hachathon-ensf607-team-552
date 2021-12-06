@@ -5,16 +5,25 @@ import com.model.ResponseTemplate;
 
 import com.repository.RoleDao;
 import com.repository.UserDao;
+import com.service.S3Service;
+import com.utils.AllowAnon;
+import com.utils.S3Util;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import com.model.Animal;
 import com.repository.AnimalDao;
+import org.springframework.web.multipart.MultipartFile;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -33,6 +42,46 @@ public class AnimalController {
 
     @Autowired
     private AnimalDao animalRepository;
+
+    @Autowired
+    private S3Service s3Service;
+
+    @Autowired
+    ServletContext context;
+
+
+
+    @AllowAnon
+    @PostMapping(value = "/imageupload")
+    public Map<String, String> imageupload(@RequestParam(value = "file") MultipartFile file) {
+        Map<String, String> map = new HashMap<>();
+        String fileName = file.getOriginalFilename();
+
+        String rootPath = context.getRealPath("resources/uploads");
+        File dir = new File(rootPath);
+        if (!dir.exists())
+            dir.mkdirs();
+
+        FileUtils.deleteQuietly(new File(rootPath+File.separator+fileName));
+        File uploadedFile = new File(rootPath, fileName);
+
+
+        try {
+            file.transferTo(uploadedFile);
+            String returnName = S3Util.getDateFilename(fileName);
+            String s3Path = s3Service.upload2Down(rootPath+File.separator+fileName, returnName, uploadedFile);
+            map.put("url", s3Path);
+            map.put("state", "SUCCESS");
+            map.put("original", "");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            FileUtils.deleteQuietly(new File(rootPath+File.separator+fileName));
+        }
+
+        return map;
+    }
+
 
     @RequestMapping(value = "/getAvailableAnimal", method = RequestMethod.GET)
     public ResponseTemplate fetchByStatus(HttpServletRequest request) {
