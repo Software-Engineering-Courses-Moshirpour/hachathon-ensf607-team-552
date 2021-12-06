@@ -5,13 +5,7 @@
 
 *Assignment 6 - Hachathon*
 
-Students should complete the hackathon with their ENSF 607 term project group.
-
-**_<span style="text-decoration:underline;">Due date: Before 11:59 PM on Friday December 3rd </span>_**
-
-Groups will present their final submission during the lecture on Tuesday, December 6th. Each presentation will be no longer than **<span style="text-decoration:underline;">5 minutes</span>**. During this presentation, the teams must present the architecture, backend, and the frontend of their application. 
-
-Note: All group members must be present (and active) during their presentations. All students must attend all presentations. 
+by Yuhua Guo, Pang-Cheng Chang, Jintao Wang
 
 **Animal Request Management**
 
@@ -23,19 +17,53 @@ The application has three users as follows:
 
 
 
-1. Instructor
+#Instructor
+
     1. Can request an animal 
+    
+![pic1](pic1.jpg)
+
     2. Can cancel a request
+    
+![pic2](pic2.png)
+
     3. Can view available animals
-2. Admin
+    
+![pic3](pic3.png)
+
+#Admin
+
     4. Can view new requests
+    
+![pic4](pic4.png)
+
     5. Can Approve a request
+    
+![pic5](pic5.png)
+![pic5-1](pic5-1.png)
+
     6. Can reject a request
-3. Technician
+    
+![pic6](pic6.png)
+![pic6-1](pic6-1.png)
+
+#Technician
+
     7. Can view new requests
+    
+![pic7](pic7.png)
+
     8. Can Approve a request
+    
+![pic8](pic8.png)
+![pic8-1](pic8-1.png)
+
     9. Can reject a request
-* Instructors can only cancel requests when their request is in “new” or “accepted_by_admin” states.
+    
+![pic9](pic9.png)
+![pic9-1](pic9-1.png)
+
+* Instructors can only cancel requests when their request is in "new" or "accepted_by_admin" states.
 * The application must have a backend and frontend, and the API must connect the two.
 * The application must be consistent when two users concurrently change a request state.
 * Every team must commit partially every few hours.
@@ -46,7 +74,8 @@ The application has three users as follows:
     * Technician: pass: pe
 
 
+**Due date: Before 11:59 PM on Friday December 3rd**
 
+Groups will present their final submission during the lecture on Tuesday, December 6th. Each presentation will be no longer than **5 minutes**. During this presentation, the teams must present the architecture, backend, and the frontend of their application. 
 
-![alt_text](Hackaton.drawio.png "State Diagram")
-
+Note: All group members must be present (and active) during their presentations. All students must attend all presentations. 
